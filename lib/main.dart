@@ -87,8 +87,8 @@ class _MyHomePageState extends State<MyHomePage> {
     try {
       ensureVideostoreRegistered();
       const host = 'framework-1-main.wcfb1lr0dn.viam.cloud';
-      const apiKeyID = '093a5315-d9de-4689-9d2b-e9b95dd9ab84';        // replace securely
-      const apiKey = 'b463sf1xqqaeiwpjnhtyzgxu1qi7rgu9';      // replace securely
+      const apiKeyID = '093a5315-d9de-4689-9d2b-e9b95dd9ab84';
+      const apiKey = 'b463sf1xqqaeiwpjnhtyzgxu1qi7rgu9';
       final robot = await RobotClient.atAddress(
         host,
         RobotClientOptions.withApiKey(apiKeyID, apiKey),
@@ -139,7 +139,7 @@ class _MyHomePageState extends State<MyHomePage> {
     _videoInitStarted = false;
     setState(() => _status = 'Streaming (progressive)...');
     _vsStreamSub?.cancel();
-    final stream = vs.fetchStream(from, to);
+    final stream = vs.fetchStream(from, to, "mp4");
     _vsStreamSub = stream.listen(
       (chunk) {
         _buffer?.add(chunk);
